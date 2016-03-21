@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+
+<div class="top-container" id="top">
+	<div class="">
+		<header>
+			<div class="header-row">
+				<span class="header-title">2015 Mets of Queens</span>
+				<div class="nav-spacer"></div>
+				<nav>
+					<a class="nav-link" href="/">Home</a>
+
+				</nav>
+			</div>
+		</header>
+	</div> 
+</div>
+
+<div id="startingblock" style="width:100%;">
+</div>
+
+<script>
+(function buildCards(){
+	$.ajax({
+		url: "{{ url_for('static', filename='playerstatlist15.js') }}",
+		cache: false,
+		type: "GET",
+		dataType: "json",
+		success: function(data, textStatus) {
+			console.log(textStatus);
+			$.each(data, function(i, field){
+				var id = "draggable-card-" + field.ID;
+				var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
+				html = html + '<img src="' + field.IMG + '"/>';
+				html = html + '<div><p>' + field.NAME + ', ' + field.POS + '</p></div>';
+				html = html + '<div><p>'+ field.STATS + '</p></div>';
+				html = html + '</div>';
+				$('#startingblock').append(html);
+				$( '#' + id ).draggable();
+			});
+		}
+    });		
+})();
+</script>
+</body>
+</html>
