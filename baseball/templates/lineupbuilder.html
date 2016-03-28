@@ -26,15 +26,15 @@
 </div>
 
 <br><br><br>
-<p>Choose a point in the 2015 Season:</p>
+<p style="display:inline">Choose a point in the 2015 Season:</p>
 <select id="gamenumsel">
-<option value="1">Game 1</option>
-<option value="150">Game 150</option>
+	<option value="1">Game 1</option>
+	<option value="150">Game 150</option>
 </select>
-<br>
-<div style="width:100%">
-<div id="startingblock"></div>
+<br><br>
 
+<div id="contain" style="width:100%">
+<div id="startingblock"></div>
 <div id="lineup">
 <table><tbody>
 <tr><td class="pos">1st</td><td class="snap-position"></td></tr>
@@ -49,6 +49,8 @@
 </tbody></table>
 </div>
 </div>
+
+
 
 <script>
 (function buildCards(){
@@ -67,7 +69,7 @@
 				html = html + '<div><p>'+ field.STATS + '</p></div>';
 				html = html + '</div>';
 				$('#startingblock').append(html);
-				$( '#' + id ).draggable({ containment: "parent", snap: ".snap-position", snapMode: "inner", snapTolerance: 10});
+				$( '#' + id ).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 10});
 			});
 		}
     });		
