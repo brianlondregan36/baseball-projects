@@ -1,21 +1,7 @@
 body{ font: 14px Verdana, Geneva, sans-serif; }
 
-@media only screen and (min-width:320px) 
-{  
-	.in-story-image{
-		float:none;    
-		clear:both;
-	}
 
-}
-@media only screen and (min-width:960px) 
-{  
-	.in-story-image{
-		float:right;    
-		clear:both;
-	}
-}
-
+/* START FULL HEADER */
 
 .top-container{
     width: 100%;
@@ -62,6 +48,25 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 	text-decoration: none;
 }
 
+/* END FULL HEADER */
+
+/* START STORY POSTS */
+
+@media only screen and (min-width:320px) 
+{  
+	.in-story-image{
+		float:none;    
+		clear:both;
+	}
+
+}
+@media only screen and (min-width:960px) 
+{  
+	.in-story-image{
+		float:right;    
+		clear:both;
+	}
+}
 
 #post-main{
     border: solid 4px #FF3300;
@@ -104,10 +109,12 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 	font-weight:bold;
 }
 
+/* END STORY POSTS */
 
 
 
 
+/* START BACK-TO-TOP WIDGET */
 
 .back-to-top{	
 	position: fixed;
@@ -137,9 +144,11 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 	transition: visibility 1s ease-out;
 }
 
+/* END BACK-TO-TOP WIDGET */
 
 
 
+/* START MODAL WINDOWS FOR IMAGES */
 
 .modalDialog {
 	position: fixed;
@@ -171,8 +180,16 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 	background: -o-linear-gradient(#fff, #999);
 }
 
+/* END MODAL WINDOWS FOR IMAGES */
 
 
+
+
+
+
+
+
+/* START INTERACTIVE LINEUP BUILDER */
 
 div.draggable-card{
 	width:400px;
@@ -197,10 +214,22 @@ div.draggable-card img{
 	cursor:move;
 }
 
-div#lineup table{
-background-color:#CCCCCC;
-	width:450px; 
+div#startingblock, div#lineup{
+	width:50%; 
+	float:left;
+}
+div#lineup table tr{
+	min-height: 110px;
+}
+.pos{
+	min-width:20px; 
+	font-size:18px;
+	font-weight: bold;
+	color:#005ce6;
 }
 .snap-position{
-width:400px;
+	min-width:400px;
+	border: dashed 1px #FF3300;
 }
+
+/* END INTERACTIVE LINEUP BUILDER */
