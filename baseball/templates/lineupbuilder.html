@@ -33,7 +33,7 @@
 </select>
 <br><br>
 
-<div id="contain" style="width:100%">
+<div id="contain">
 <div id="startingblock"></div>
 <div id="lineup">
 <table><tbody>
@@ -53,6 +53,8 @@
 
 
 <script>
+var sel = document.getElementById("gamenumsel").value; 
+
 (function buildCards(){
 	$.ajax({
 		url: "{{ url_for('static', filename='playerstatlist15.js') }}",
