@@ -213,15 +213,20 @@ div.draggable-card img{
 }
 div#contain{
 	width:100%;
-	height:600px; 
+	height:620px; 
+	overflow-x: hidden;
 	overflow-y:scroll; 
 }
-div#startingblock, div#lineup{
-	width:50%; 
+div#startingblock{
+	width:60%; 
+	float:left;
+}
+div#lineup{
+	width:40%;
 	float:left;
 }
 div#lineup table tr{
-	height: 102px;
+	height: 104px;
 	min-height: 100px;
 }
 .pos{
@@ -231,7 +236,7 @@ div#lineup table tr{
 	color:#005ce6;
 }
 .snap-position{
-	width:402px;
+	width: 404px;
 	border: dashed 1px #FF3300;
 }
 
