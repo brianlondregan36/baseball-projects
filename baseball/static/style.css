@@ -218,11 +218,11 @@ div#contain{
 	overflow-y:scroll; 
 }
 div#startingblock{
-	width:60%; 
+	width:55%; 
 	float:left;
 }
 div#lineup{
-	width:40%;
+	width:45%;
 	float:left;
 }
 div#lineup table tr{
