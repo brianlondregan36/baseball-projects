@@ -19,15 +19,21 @@
 				<div class="nav-spacer"></div>
 				<nav>
 					<a class="nav-link" href="/">Home</a>
-
 				</nav>
 			</div>
 		</header>
 	</div> 
 </div>
 
-<div id="startingblock">
-</div>
+<br><br><br>
+<p>Choose a point in the 2015 Season:</p>
+<select id="gamenumsel">
+<option value="1">Game 1</option>
+<option value="150">Game 150</option>
+</select>
+<br>
+<div style="width:100%">
+<div id="startingblock"></div>
 
 <div id="lineup">
 <table><tbody>
@@ -41,6 +47,7 @@
 <tr><td class="pos">8th</td><td class="snap-position"></td></tr>
 <tr><td class="pos">9th</td><td class="snap-position"></td></tr>
 </tbody></table>
+</div>
 </div>
 
 <script>
@@ -60,7 +67,7 @@
 				html = html + '<div><p>'+ field.STATS + '</p></div>';
 				html = html + '</div>';
 				$('#startingblock').append(html);
-				$( '#' + id ).draggable({snap: ".snap-position", snapMode: "inner"});
+				$( '#' + id ).draggable({ containment: "parent", snap: ".snap-position", snapMode: "inner", snapTolerance: 10});
 			});
 		}
     });		
