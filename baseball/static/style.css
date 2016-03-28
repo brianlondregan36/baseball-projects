@@ -196,3 +196,11 @@ div.draggable-card img{
 .ui-draggable-handle{
 	cursor:move;
 }
+
+div#lineup table{
+background-color:#CCCCCC;
+	width:450px; 
+}
+.snap-position{
+width:400px;
+}
