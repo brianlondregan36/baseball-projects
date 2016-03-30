@@ -9,7 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 </head>
-<body>
+<body onload="BuildCards(1)">
 
 <div class="top-container" id="top">
 	<div class="">
@@ -27,9 +27,10 @@
 
 <br><br><br>
 <p style="display:inline">Choose a point in the 2015 Season:</p>
-<select id="gameselect" onchange="BuildCards()">
-	<option value="1">Game 1</option>
-	<option value="150">Game 150</option>
+<select id="gameselect" onchange="Clear()">
+	<option value="1">Opening Day</option>
+	<option value="75">Just before Allstar break</option>
+	<option value="150">After the Trade Dealine</option>
 </select>
 <br><br>
 
@@ -53,41 +54,34 @@
 
 
 <script>
-(function BuildCards(gameNo){
+function Clear(){
+$('#startingblock').empty();
+gameNo = document.getElementById("gameselect").value;
+BuildCards(gameNo);
+}
+function BuildCards(gameNo){
 
-	if(!gameNo){
-		gameNo = document.getElementById("gameselect").value;
-	}
-	alert(gameNo);
 	$.ajax({
 		url: "{{ url_for('static', filename='playerstatlist15.js') }}",
 		cache: false,
 		type: "GET",
 		dataType: "json",
 		success: function(data, textStatus) {
-			console.log(textStatus);
-			
 			$.each(data, function(i, field){
 				if(field.GAMENO == gameNo){
-				alert("match");
-				var id = "draggable-card-" + field.ID;
-				var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
-				html = html + '<img src="' + field.IMG + '"/>';
-				html = html + '<div><p>' + field.NAME + ', ' + field.POS + '</p></div>';
-				html = html + '<div><p>'+ field.STATS + '</p></div>';
-				html = html + '</div>';
-				$('#startingblock').append(html);
-				$( '#' + id ).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 10});
+					var id = "draggable-card-" + field.ID;
+					var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
+					html = html + '<img src="' + field.IMG + '"/>';
+					html = html + '<div><p>' + field.NAME + ', ' + field.POS + '</p></div>';
+					html = html + '<div><p>'+ field.STATS + '</p></div>';
+					html = html + '</div>';
+					$('#startingblock').append(html);
+					$( '#' + id ).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 16});
 				}
 			});
 		}
     });		
-})('1');
-BuildCards("150");
-BuildCards();
-
-
-//on change, buildCards and pass in the gameNo
+}
 </script>
 </body>
 </html>
