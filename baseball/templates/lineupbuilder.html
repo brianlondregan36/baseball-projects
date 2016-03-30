@@ -29,8 +29,8 @@
 <p style="display:inline">Choose a point in the 2015 Season:</p>
 <select id="gameselect" onchange="Clear()">
 	<option value="1">Opening Day</option>
-	<option value="75">Just before Allstar break</option>
-	<option value="150">After the Trade Dealine</option>
+	<option value="90">Just before Allstar Break</option>
+	<option value="103">After the Trade Dealine</option>
 </select>
 <br><br>
 
@@ -54,13 +54,14 @@
 
 
 <script>
-function Clear(){
-$('#startingblock').empty();
-gameNo = document.getElementById("gameselect").value;
-BuildCards(gameNo);
-}
-function BuildCards(gameNo){
 
+function Clear(){
+	$('#startingblock').empty();
+	gameNo = document.getElementById("gameselect").value;
+	BuildCards(gameNo);
+}
+
+function BuildCards(gameNo){
 	$.ajax({
 		url: "{{ url_for('static', filename='playerstatlist15.js') }}",
 		cache: false,
@@ -82,6 +83,8 @@ function BuildCards(gameNo){
 		}
     });		
 }
+
 </script>
+
 </body>
 </html>
