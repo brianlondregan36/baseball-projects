@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Lineup Builder</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='shortcut icon' href='{{ url_for('static', filename='bceltic.ico') }}' type='image/x-icon'/ >
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	
 	<style>
 		div.draggable-card{
@@ -63,57 +66,63 @@
 
 <body onload="BuildCards(1)">
 
-<div class="top-container" id="top">
-	<div class="">
-		<header>
-			<div class="header-row">
-				<span class="header-title">2015 Mets of Queens</span>
-				<div class="nav-spacer"></div>
-				<nav>
-					<a class="nav-link" href="/">Home</a>
-				</nav>
-			</div>
-		</header>
-	</div> 
-</div>
+	<div class="container-fluid" style="background-color:#2196F3;color:#fff;height:200px;">
+		<h1 class="pull-left">2015 Mets of Queens</h1>
+		<a class="pull-right btn-link" style="margin-top:18px" href="/">Home</a>
+		<h3 style="clear:both;">Interactive Lineup Builder</h3>
+		<p>Before the trade deadline, the Mets had the worst lineup in the majors. Mostly due to injuries, the lineup lacked talent.</p>
+		<p>A few days after the deadline, the Mets had a much different look. Fool around with the tool below to see for yourself.</p>
+	</div><br>
+    
+	<div class="dropdown" style="position:fixed; margin-left:8px;">
+		<button class="btn btn-primary dropdown-toggle" style="background-color:#2196F3;color:#fff;" id="menu1" type="button" data-toggle="dropdown">Choose a Point in the Season <span class="caret"></span></button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+			<li role="presentation"><a role="menuitem" tabindex="-1" value="1" href="#">Opening Day</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" value= "90" href="#">Just before Allstar Break</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" value="103" href="#">After the Trade Dealine</a></li>
+		</ul>
+	</div>
+	<br><br>
+	
 
-<br><br><br>
-<p style="display:inline">Choose a point in the 2015 Season:</p>
-<select id="gameselect" onchange="Clear()">
-	<option value="1">Opening Day</option>
-	<option value="90">Just before Allstar Break</option>
-	<option value="103">After the Trade Dealine</option>
-</select>
-<br><br>
+	<div id="contain">
+		<div id="startingblock"></div>
+	
+		<div id="lineup">   	
+			<table><tbody>
+				<tr><td class="pos">1st</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">2nd</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">3rd</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">4th</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">5th</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">6th</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">7th</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">8th</td><td class="snap-position"></td></tr>
+				<tr><td class="pos">9th</td><td class="snap-position"></td></tr>
+			</tbody></table>
+		</div>
+	</div>
 
-<div id="contain">
-<div id="startingblock"></div>
-<div id="lineup">
-<table><tbody>
-<tr><td class="pos">1st</td><td class="snap-position"></td></tr>
-<tr><td class="pos">2nd</td><td class="snap-position"></td></tr>
-<tr><td class="pos">3rd</td><td class="snap-position"></td></tr>
-<tr><td class="pos">4th</td><td class="snap-position"></td></tr>
-<tr><td class="pos">5th</td><td class="snap-position"></td></tr>
-<tr><td class="pos">6th</td><td class="snap-position"></td></tr>
-<tr><td class="pos">7th</td><td class="snap-position"></td></tr>
-<tr><td class="pos">8th</td><td class="snap-position"></td></tr>
-<tr><td class="pos">9th</td><td class="snap-position"></td></tr>
-</tbody></table>
-</div>
-</div>
 
 
 
 <script>
 
-function Clear(){
+$(document).ready(function(){
+    $(".dropdown-toggle").dropdown();
+	$('.dropdown-menu a').click(function(){
+		var gameNo = $(this).attr('value');
+		Clear(gameNo)
+	});
+});
+
+function Clear(gameNo){
 	$('#startingblock').empty();
-	gameNo = document.getElementById("gameselect").value;
 	BuildCards(gameNo);
 }
 
 function BuildCards(gameNo){
+	alert("rebuild!");
 	$.ajax({
 		url: "{{ url_for('static', filename='playerstatlist15.js') }}",
 		cache: false,
@@ -133,9 +142,8 @@ function BuildCards(gameNo){
 				}
 			});
 		}
-    });		
+    });	
 }
-
 </script>
 
 </body>
