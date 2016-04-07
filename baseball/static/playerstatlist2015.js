@@ -237,7 +237,7 @@
     "SLG": 0.318,
     "STATS": "9 RBIs | 8 Runs | 3 HR | 0.164 BA | 0.227 OBP | 0.318 SLG",
     "IMG": "http://d3k2oh6evki4b7.cloudfront.net/req/201602120/images/headshots/0/0dd8d39f_mlbam.jpg",
-    "GAMENO": "[1,2]"
+    "GAMENO": "[2]"
   },
   {
     "ID": 17,
@@ -252,7 +252,7 @@
     "SLG": 0.367,
     "STATS": "6 RBIs | 7 Runs | 3 HR | 0.211 BA | 0.311 OBP | 0.367 SLG",
     "IMG": "http://d3k2oh6evki4b7.cloudfront.net/req/201602120/images/headshots/f/f68ada62_mlbam.jpg",
-    "GAMENO": "[1,2]"
+    "GAMENO": "[2]"
   },
   {
     "ID": 18,
@@ -282,7 +282,7 @@
     "SLG": 0.213,
     "STATS": "5 RBIs | 6 Runs | 2 HR | 0.125 BA | 0.239 OBP | 0.213 SLG",
     "IMG": "http://d3k2oh6evki4b7.cloudfront.net/req/201602120/images/headshots/e/ecfd8c1f_mlbam.jpg",
-    "GAMENO": "[1,2,3]"
+    "GAMENO": "[1,2]"
   },
   {
     "ID": 20,
