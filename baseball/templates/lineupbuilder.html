@@ -78,8 +78,8 @@
 		<button class="btn btn-primary dropdown-toggle" style="background-color:#2196F3;color:#fff;" id="menu1" type="button" data-toggle="dropdown">Choose a Point in the Season <span class="caret"></span></button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 			<li role="presentation"><a role="menuitem" tabindex="-1" value="1" href="#">Opening Day</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" value= "90" href="#">Just before Allstar Break</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" value="103" href="#">After the Trade Dealine</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" value="2" href="#">Just before Allstar Break</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" value="3" href="#">After the Trade Dealine</a></li>
 		</ul>
 	</div>
 	<br><br>
@@ -123,13 +123,13 @@ function Clear(gameNo){
 
 function BuildCards(gameNo){
 	$.ajax({
-		url: "{{ url_for('static', filename='playerstatlist15.js') }}",
+		url: "{{ url_for('static', filename='playerstatlist2015.js') }}",
 		cache: false,
 		type: "GET",
 		dataType: "json",
 		success: function(data, textStatus) {
 			$.each(data, function(i, field){
-				if(field.GAMENO == gameNo){
+				if(field.GAMENO.indexOf(gameNo) != -1){
 					var id = "draggable-card-" + field.ID;
 					var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
 					html = html + '<img src="' + field.IMG + '"/>';
