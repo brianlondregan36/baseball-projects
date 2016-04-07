@@ -149,9 +149,13 @@ function BuildCards(gameNo){
 }
 
 function Shuffle(){
- var nodes = $('#startingblock').children(); 
- alert(nodes.size());
-
+	var container = $('#startingblock'); 
+	var nodes = container.children(); 
+	var noOfCards = nodes.size(); 
+	container.empty(); 
+	for(var i = 0; i < noOfCards; i++){
+		alert(nodes[i]);
+	}
 }
 </script>
 
