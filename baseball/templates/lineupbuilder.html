@@ -130,7 +130,7 @@ function BuildCards(ptInSeason){
 		dataType: "json",
 		success: function(data, textStatus) {
 			$.each(data, function(i, field){
-				if(field.GAMENO.indexOf(gameNo) != -1){
+				if(field.GAMENO.indexOf(ptInSeason) != -1){
 					var id = "draggable-card-" + field.ID;
 					var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
 					html = html + '<img src="' + field.IMG + '"/>';
