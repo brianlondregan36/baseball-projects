@@ -112,7 +112,10 @@
 $(document).ready(function(){
 	$('.dropdown-toggle').dropdown();
 	$('.dropdown-menu a').click(function(){
+		$('.dropdown-menu a').css("color", "#333");
+		$(this).css("color", "#337ab7");
 		var ptInSeason = $(this).attr('value');
+		
 		Clear(ptInSeason);
 	});
 });
