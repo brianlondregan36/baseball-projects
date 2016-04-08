@@ -88,7 +88,6 @@
 	</div>
 	<br><br>
 	
-
 	<div id="contain">
 		<div id="startingblock"></div>
 	
@@ -108,24 +107,22 @@
 	</div>
 
 
-
-
 <script>
 
 $(document).ready(function(){
 	$('.dropdown-toggle').dropdown();
 	$('.dropdown-menu a').click(function(){
-		var gameNo = $(this).attr('value');
-		Clear(gameNo)
+		var ptInSeason = $(this).attr('value');
+		Clear(ptInSeason);
 	});
 });
 
-function Clear(gameNo){
+function Clear(ptInSeason){
 	$('#startingblock').empty();
-	BuildCards(gameNo);
+	BuildCards(ptInSeason);
 }
 
-function BuildCards(gameNo){
+function BuildCards(ptInSeason){
 	$.ajax({
 		url: "{{ url_for('static', filename='playerstatlist2015.js') }}",
 		cache: false,
@@ -145,16 +142,23 @@ function BuildCards(gameNo){
 				}
 			});
 		}
-    });	
+    });
+	Shuffle(); 
 }
 
 function Shuffle(){
 	var container = $('#startingblock'); 
 	var nodes = container.children(); 
-	var noOfCards = nodes.size(); 
+	var noOfCards = nodes.length; 
 	container.empty(); 
-	for(var i = 0; i < noOfCards; i++){
-		alert(nodes[i]);
+	
+	var curr = noOfCards; 
+	for(var i=0; i < noOfCards; i++) {
+		var x = Math.floor(Math.random() * curr);
+		var card = nodes[x]; 
+		container.append(card);
+		nodes.splice(x,1);
+		curr = curr - 1; 
 	}
 }
 </script>
