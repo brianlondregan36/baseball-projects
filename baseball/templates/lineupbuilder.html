@@ -161,7 +161,7 @@ function Shuffle(){
 		curr = curr - 1; 
 	}
 	
-	$( 'div#startingblock div' ).each(function(){
+	$( 'div.draggable-card' ).each(function(){
 		$(this).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 16});
 		$(this).css('left', "auto");
 		$(this).css('top', "auto");
