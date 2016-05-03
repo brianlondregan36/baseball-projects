@@ -2,54 +2,54 @@
 <html lang="en">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Runs-Scored Gauntlet Results</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-	var teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL'];	
-	var accomplished = [];
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Runs-Scored Gauntlet Results</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	<link rel='shortcut icon' href='{{ url_for('static', filename='bceltic.ico') }}' type='image/x-icon'/ >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL'];	
+		var accomplished = [];
 	
-	$('p.results').each(function(){
-		$(this).hide(); 
-		var team_code = $(this).text();		
-		accomplished.push(team_code); 	
-	});
+		$('p.results').each(function(){
+			$(this).hide(); 
+			var team_code = $(this).text();		
+			accomplished.push(team_code); 	
+		});
 	
-	for(var i = 0; i < teamCodes.length; i++)
-	{
-		var img = document.createElement("IMG"); 
-		var tempSrc = "{{ url_for('static', filename='images/TBR.jpg') }}"
-		var src = tempSrc.replace("TBR", teamCodes[i]);
-		img.setAttribute("src", src); 
-		img.setAttribute("alt", teamCodes[i]);
-		if( accomplished.indexOf(teamCodes[i]) != -1 )
+		for(var i = 0; i < teamCodes.length; i++)
 		{
-			img.setAttribute("class", "accomplished-image");
+			var img = document.createElement("IMG"); 
+			var tempSrc = "{{ url_for('static', filename='images/TBR.jpg') }}"
+			var src = tempSrc.replace("TBR", teamCodes[i]);
+			img.setAttribute("src", src); 
+			img.setAttribute("alt", teamCodes[i]);
+			if( accomplished.indexOf(teamCodes[i]) != -1 )
+			{
+				img.setAttribute("class", "accomplished-image");
 			
-			$('p.results').each(function(){
-				if( teamCodes[i] == $(this).text() )
-				{
-					var gameNo = $(this).attr('data-game-number');
-					img.setAttribute("title", "" + teamCodes[i] + " did it in " + gameNo + " games");
-					return false;
-				}
-			});
-		}
-		else
-		{
-			img.setAttribute("class", "non-accomplished-image");
-		}
+				$('p.results').each(function(){
+					if( teamCodes[i] == $(this).text() )
+					{
+						var gameNo = $(this).attr('data-game-number');
+						img.setAttribute("title", "" + teamCodes[i] + " did it in " + gameNo + " games");
+						return false;
+					}
+				});
+			}
+			else
+			{
+				img.setAttribute("class", "non-accomplished-image");
+			}
 		
-		$("#main").append(img);
-	}
+			$("#main").append(img);
+		}
 	
-	var c = $( '#main img.accomplished-image' ).length; 
-	$( '#count' ).text(c);
-});
-</script>
-
+		var c = $( '#main img.accomplished-image' ).length; 
+		$( '#count' ).text(c);
+	});
+	</script>
 </head>
 
 

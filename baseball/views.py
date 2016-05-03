@@ -1,5 +1,5 @@
 from baseball import app
-from flask import render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from teamscores import *
 
 @app.route('/')
@@ -19,7 +19,7 @@ def gauntlet():
 	return render_template('gauntlet.html')
 	
 
-@app.route('/gauntlet', methods=['GET'])
+@app.route('/gauntlet/', methods=['GET'])
 def rungauntlet():
 	year = request.args.get('year', '')
 	if year == "":
