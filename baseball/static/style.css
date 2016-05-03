@@ -1,6 +1,7 @@
 body{ font: 14px Verdana, Geneva, sans-serif; }
 
 
+
 /* START FULL HEADER */
 
 .top-container{
@@ -49,6 +50,8 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 }
 
 /* END FULL HEADER */
+
+
 
 /* START STORY POSTS */
 
@@ -110,7 +113,6 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 }
 
 /* END STORY POSTS */
-
 
 
 
@@ -182,3 +184,35 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 
 /* END MODAL WINDOWS FOR IMAGES */
 
+
+
+
+
+/* START IMAGE BOX DISPLAY FOR GAUNTLET */
+
+h1{
+	color:#FF3333;
+}
+.explanation{
+	font: 16px Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	color:#005CB8;
+}
+#main{
+	border: 4px solid #005CB8;
+    border-radius: 8px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding:6px;
+}
+#main img{
+	width:100px; 
+	height:auto;
+	padding:4px;
+}
+.non-accomplished-image{
+	opacity: 0.2;
+	filter: alpha(opacity=20);
+}
+
+/* END IMAGE BOX DISPLAY FOR GAUNTLET */
