@@ -14,13 +14,12 @@ def builder():
 
 teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']
 
-@app.route('/gauntlet/')
-def gauntlet():
-	return render_template('gauntlet.html')
-	
+@app.route('/runsscoredgauntlet/')
+def gauntletPage():
+	return render_template('runsscoredgauntlet.html')
 
-@app.route('/gauntlet/', methods=['GET'])
-def rungauntlet():
+@app.route('/gauntlet', methods=['GET'])
+def runGauntlet():
 	year = request.args.get('year', '')
 	if year == "":
 		return redirect(url_for('index'))
