@@ -10,15 +10,14 @@ def index():
 def builder():
 	return render_template("lineupbuilder.html")
 	
-
-
-teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']
-
 @app.route('/runsscoredgauntlet/')
-def gauntletPage():
-	return render_template('runsscoredgauntlet.html')
+def gauntletpage():
+	return render_template("runsscoredgauntlet.html")
 
-@app.route('/gauntlet', methods=['GET'])
+	
+teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']	
+	
+@app.route('/gauntlet/', methods=['GET'])
 def runGauntlet():
 	year = request.args.get('year', '')
 	if year == "":
