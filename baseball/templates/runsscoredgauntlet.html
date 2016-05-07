@@ -23,18 +23,23 @@
 	</div><br>
 
 	<form action="/gauntlet" method="get">
-		<div style="margin-left:6px; margin-right:6px;">
+		<div style="margin-left:8px; margin-right:8px;">
 			<select name="year">
 				<option value="2011">2011</option>
 				<option value="2012">2012</option>
-				<option value="2013">2013</option>
 				<option value="2014">2014</option>
 				<option value="2015">2015</option>
 				<option value="2016">2016</option>
 			</select>
-			<input type="submit" class="btn btn-primary" style="background-color:#2196F3;color:#fff;" value="Submit">
+			<input type="submit" class="btn btn-primary" style="background-color:#2196F3;color:#fff;" onclick="showWaiting()" value="Submit">
+			<p id="waiting"></p>
 		</div>
 	</form>
 	
+	<script>
+		function showWaiting(){
+			document.getElementById("waiting").innerHTML = "testtesttest";
+		}
+	</script>
 </body>
 </html>
