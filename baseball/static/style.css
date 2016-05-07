@@ -190,14 +190,6 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 
 /* START IMAGE BOX DISPLAY FOR GAUNTLET */
 
-h1{
-	color:#FF3333;
-}
-.explanation{
-	font: 16px Verdana, Geneva, sans-serif;
-	font-weight: bold;
-	color:#005CB8;
-}
 #main{
 	border: 4px solid #005CB8;
     border-radius: 8px;

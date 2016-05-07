@@ -3,16 +3,25 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Runs-Scored Gauntlet</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
 	<link rel="shortcut icon" href="{{ url_for('static', filename='bceltic.ico') }}" type="image/x-icon" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 
 <body>
-	<h1>MLB Runs-Scored Gauntlet</h1>	
-	<p class="explanation">Find out which MLB teams logged final scores of 1 run scored, 2 runs scored, all the way up to 13 runs scored over the course of a season...</p>
+
+	<div class="container-fluid" style="background-color:#2196F3;color:#fff;height:200px;">
+		<h1 class="pull-left">2015 Mets of Queens</h1>
+		<a class="pull-right btn-link" style="margin-top:18px" href="/">Home</a>
+		<h3 style="clear:both;">MLB Runs-Scored Gauntlet</h3>
+		<p>Find out which MLB teams logged final scores of 1 run scored, 2 runs scored, all the way up to 13 runs scored over the course of a season...</p>
+		<p>These are the teams that put up a very wide range of final box scores</p>
+	</div><br>
+
 	<form action="/gauntlet" method="get">
 		<select name="year">
 			<option value="2011">2011</option>
