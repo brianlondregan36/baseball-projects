@@ -58,13 +58,20 @@
 
 
 <body>
-	<h1>MLB Runs-Scored Gauntlet Results...</h1> 
-	<p class="explanation">Here are the MLB teams that logged final scores of 1 run scored, 2 runs scored, all the way up to 13 runs scored in the {{request.args.get('year', '')}} season...</p>
-	<div id="main"></div>
-	<p class="explanation"><span id="count"></span> teams accomplished this offensive feat.</p>
 
-{% for key, value in rows.iteritems() %}
+	<div class="container-fluid" style="background-color:#2196F3;color:#fff;height:200px;">
+		<h1 class="pull-left">2015 Mets of Queens</h1>
+		<a class="pull-right btn-link" style="margin-top:18px" href="/">Home</a>
+		<h3 style="clear:both;">MLB Runs-Scored Gauntlet Results...</h3>
+		<p>Here are the MLB teams that logged final scores of 1 run scored, 2 runs scored, all the way up to 13 runs scored in the {{request.args.get('year', '')}} season...</p>
+	</div><br>
+
+	<div id="main"></div>
+	<p style="color:#2196F3;"><span id="count"></span> teams accomplished this offensive feat.</p>
+
+	{% for key, value in rows.iteritems() %}
 	<p class="results" data-game-number="{{ value }}">{{ key }}</p>
 	{% endfor %}
+	
 </body>
 </html>
