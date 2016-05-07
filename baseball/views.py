@@ -1,11 +1,7 @@
 from baseball import app
 from flask import Flask, render_template, request, redirect, url_for
 from teamscores import *
-import logging
-logging.basicConfig(filename='log_filename.txt', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.debug('This is a log message.')
 
-print("hello")
 @app.route('/')
 def index():
 	return render_template("index.html")
@@ -19,9 +15,10 @@ def gauntletpage():
 	return render_template("runsscoredgauntlet.html")
 
 	
-teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']	
+#teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']	
+teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR']	
 	
-@app.route('/gauntlet/', methods=['GET'])
+@app.route('/gauntlet', methods=['GET'])
 def runGauntlet():
 	year = request.args.get('year', '')
 	if year == "":
