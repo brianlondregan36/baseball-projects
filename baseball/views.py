@@ -1,6 +1,9 @@
 from baseball import app
 from flask import Flask, render_template, request, redirect, url_for
 from teamscores import *
+import logging
+logging.basicConfig(filename='log_filename.txt', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.debug('This is a log message.')
 
 @app.route('/')
 def index():
