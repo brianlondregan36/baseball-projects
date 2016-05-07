@@ -77,36 +77,37 @@
 		<p>A few days after the deadline, the Mets had a much different look. Fool around with the tool below to see for yourself.</p>
 	</div><br>
     
-	<div class="dropdown" style="float:left;z-index:2;margin-left:8px;">
-		<button class="btn btn-primary dropdown-toggle" style="background-color:#2196F3;color:#fff;" id="menu1" type="button" data-toggle="dropdown">Choose a Point in the Season <span class="caret"></span></button>
-		<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" value="1" href="#">Opening Day</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" value="2" href="#">Just before Allstar Break</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" value="3" href="#">After the Trade Dealine</a></li>
-		</ul>
-	</div>
-	<div style="float:left;z-index:2;margin-left:20px;">
-		<button type="button" class="btn btn-primary" style="background-color:#2196F3;color:#fff;" onclick="Shuffle()">Shuffle Up</button>
-	</div>
-	<br><br>
+	<div style="margin-left:4px; margin-right:4px;">
+		<div class="dropdown" style="float:left;z-index:2;margin-left:8px;">
+			<button class="btn btn-primary dropdown-toggle" style="background-color:#2196F3;color:#fff;" id="menu1" type="button" data-toggle="dropdown">Choose a Point in the Season <span class="caret"></span></button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+				<li role="presentation"><a role="menuitem" tabindex="-1" value="1" href="#">Opening Day</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" value="2" href="#">Just before Allstar Break</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1" value="3" href="#">After the Trade Dealine</a></li>
+			</ul>
+		</div>
+		<div style="float:left;z-index:2;margin-left:20px;">
+			<button type="button" class="btn btn-primary" style="background-color:#2196F3;color:#fff;" onclick="Shuffle()">Shuffle Up</button>
+		</div>
+		<br><br>
 	
-	<div id="contain">
-		<div id="startingblock"></div>
+		<div id="contain">
+			<div id="startingblock"></div>
 	
-		<div id="lineup">   	
-			<table><tbody>
-				<tr><td class="pos">1st</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">2nd</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">3rd</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">4th</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">5th</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">6th</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">7th</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">8th</td><td class="snap-position"></td></tr>
-			</tbody></table>
+			<div id="lineup">   	
+				<table><tbody>
+					<tr><td class="pos">1st</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">2nd</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">3rd</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">4th</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">5th</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">6th</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">7th</td><td class="snap-position"></td></tr>
+					<tr><td class="pos">8th</td><td class="snap-position"></td></tr>
+				</tbody></table>
+			</div>
 		</div>
 	</div>
-
 
 	<script>
 	$(document).ready(function(){
