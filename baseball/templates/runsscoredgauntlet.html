@@ -31,14 +31,27 @@
 				<option value="2015">2015</option>
 				<option value="2016">2016</option>
 			</select>
-			<input type="submit" class="btn btn-primary" style="background-color:#2196F3;color:#fff;" onclick="showWaiting()" value="Submit">
-			<p id="waiting"></p>
+			<input type="submit" class="btn btn-primary" style="background-color:#2196F3;color:#fff;" onclick="loading()" value="Submit">
+			<div id="bar" style="display:none;">looking up box scores</div>
 		</div>
 	</form>
 	
 	<script>
-		function showWaiting(){
-			document.getElementById("waiting").innerHTML = "testtesttest";
+		function loading(){
+			var x = document.getElementById("bar");
+			x.style.display = "block";
+			var move = setInterval(myTimer, 1000)
+		
+			function myTimer() {
+				var curr = x.innerHTML;
+				if( curr.length == 25 ) {
+					x.innerHTML = "looking up box scores"
+				}
+				else {
+					curr = curr + ".";
+					x.innerHTML = curr;
+				}
+			}
 		}
 	</script>
 </body>
