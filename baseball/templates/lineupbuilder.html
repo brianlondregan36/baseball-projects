@@ -63,7 +63,7 @@
 			width: 404px;
 			border: dashed 1px #FF3300;
 		}
-</style>
+	</style>
 </head>
 
 
@@ -103,76 +103,74 @@
 				<tr><td class="pos">6th</td><td class="snap-position"></td></tr>
 				<tr><td class="pos">7th</td><td class="snap-position"></td></tr>
 				<tr><td class="pos">8th</td><td class="snap-position"></td></tr>
-				<tr><td class="pos">9th</td><td class="snap-position"></td></tr>
 			</tbody></table>
 		</div>
 	</div>
 
 
-<script>
-
-$(document).ready(function(){
-	$('.dropdown-toggle').dropdown();
-	$('.dropdown-menu a').click(function(){
-		$('.dropdown-menu a').css("color", "#333");
-		$(this).css("color", "#337ab7");
-		var ptInSeason = $(this).attr('value');
+	<script>
+	$(document).ready(function(){
+		$('.dropdown-toggle').dropdown();
+		$('.dropdown-menu a').click(function(){
+			$('.dropdown-menu a').css("color", "#333");
+			$(this).css("color", "#337ab7");
+			var ptInSeason = $(this).attr('value');
 		
-		Clear(ptInSeason);
+			Clear(ptInSeason);
+		});
 	});
-});
 
-function Clear(ptInSeason){
-	$('#startingblock').empty();
-	BuildCards(ptInSeason);
-}
-
-function BuildCards(ptInSeason){
-	$.ajax({
-		url: "{{ url_for('static', filename='playerstatlist2015.js') }}",
-		cache: false,
-		type: "GET",
-		dataType: "json",
-		success: function(data, textStatus) {
-			$.each(data, function(i, field){
-				if(field.GAMENO.indexOf(ptInSeason) != -1){
-					var id = "draggable-card-" + field.ID;
-					var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
-					html = html + '<img src="' + field.IMG + '"/>';
-					html = html + '<div><p>' + field.NAME + ', ' + field.POS + '</p></div>';
-					html = html + '<div><p>'+ field.STATS + '</p></div>';
-					html = html + '</div>';
-					$('#startingblock').append(html);
-					$( '#' + id ).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 16});  //would love to pass this as callback
-				}
-			});
-		}
-    });
-	Shuffle(); 
-}
-
-function Shuffle(){
-	var container = $('#startingblock'); 
-	var nodes = container.children(); 
-	var noOfCards = nodes.length; 
-	container.empty(); 
-	
-	var curr = noOfCards; 
-	for(var i=0; i < noOfCards; i++) {
-		var x = Math.floor(Math.random() * curr);
-		var card = nodes[x]; 
-		container.append(card);
-		nodes.splice(x,1);
-		curr = curr - 1; 
+	function Clear(ptInSeason){
+		$('#startingblock').empty();
+		BuildCards(ptInSeason);
 	}
+
+	function BuildCards(ptInSeason){
+		$.ajax({
+			url: "{{ url_for('static', filename='playerstatlist2015.js') }}",
+			cache: false,
+			type: "GET",
+			dataType: "json",
+			success: function(data, textStatus) {
+				$.each(data, function(i, field){
+					if(field.GAMENO.indexOf(ptInSeason) != -1){
+						var id = "draggable-card-" + field.ID;
+						var html = '<div id="' + id + '" class="draggable-card ui-widget-content">';
+						html = html + '<img src="' + field.IMG + '"/>';
+						html = html + '<div><p>' + field.NAME + ', ' + field.POS + '</p></div>';
+						html = html + '<div><p>'+ field.STATS + '</p></div>';
+						html = html + '</div>';
+						$('#startingblock').append(html);
+						$( '#' + id ).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 16});  //would love to pass this as callback
+					}
+				});
+			}
+		});
+		Shuffle(); 
+	}
+
+	function Shuffle(){
+		var container = $('#startingblock'); 
+		var nodes = container.children(); 
+		var noOfCards = nodes.length; 
+		container.empty(); 
 	
-	$( 'div.draggable-card' ).each(function(){
-		$(this).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 16});
-		$(this).css('left', "auto");
-		$(this).css('top', "auto");
-	});
-}
-</script>
+		var curr = noOfCards; 
+		for(var i=0; i < noOfCards; i++) {
+			var x = Math.floor(Math.random() * curr);
+			var card = nodes[x]; 
+			container.append(card);
+			nodes.splice(x,1);
+			curr = curr - 1; 
+		}
+	
+		$( 'div.draggable-card' ).each(function(){
+			$(this).draggable({ containment: "#contain", snap: ".snap-position", snapMode: "inner", snapTolerance: 16});
+			$(this).css('left', "auto");
+			$(this).css('top', "auto");
+		});
+	}
+	</script>
 
 </body>
 </html>
