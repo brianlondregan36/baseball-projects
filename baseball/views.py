@@ -10,8 +10,8 @@ teams = {}
 	
 class ThreadUrl(threading.Thread):
     def __init__(self, queue, year):
-		self.year = year
-        threading.Thread.__init__(self)
+		threading.Thread.__init__(self)
+        self.year = year
         self.queue = queue
         
 	def run(self):
