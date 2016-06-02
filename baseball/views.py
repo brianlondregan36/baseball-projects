@@ -17,11 +17,12 @@ class ThreadUrl(threading.Thread):
 	def run(self):
 		while True:
             teamCode = self.queue.get()
-            team = Team(teamCode, 2015)
+            team = Team(teamCode, self.year)
             team.FillBuckets()
             if team.gameNumber != 999:
                 teams[team.name] = team.gameNumber
-            self.queue.task_done()   
+            self.queue.task_done()
+			
 			
 
 @app.route('/')
@@ -48,5 +49,7 @@ def runGauntlet():
 			t.start()
 		for teamCode in teamCodes:
 			queue.put(teamCode)
+			print "\n " + "the length of the queue is " + queue.len
 		queue.join()
+		print "\n " + "k done now"
 		return render_template('show_results.html', rows=teams)

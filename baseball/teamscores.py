@@ -21,7 +21,7 @@ class Team(object):
             self.runBuckets.append([])
                 
     def FillBuckets(self):
-        print "\n "+ self.name + " - loading team's scores from baseball-reference.com"
+        print "\n " + self.name + " - loading team's scores from baseball-reference.com"
         page = urllib2.urlopen(self.url)
         soup = BeautifulSoup(page.read())
 
