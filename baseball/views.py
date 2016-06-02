@@ -1,6 +1,28 @@
 from baseball import app
-from flask import Flask, render_template, request, redirect, url_for
 from teamscores import *
+from flask import Flask, render_template, request, redirect, url_for
+import Queue
+import threading
+
+teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']
+queue = Queue.Queue()
+teams = {}
+	
+class ThreadUrl(threading.Thread):
+    def __init__(self, queue, year):
+        threading.Thread.__init__(self)
+        self.queue = queue
+		self.year = year
+        
+	def run(self):
+		while True:
+            teamCode = self.queue.get()
+            team = Team(teamCode, 2015)
+            team.FillBuckets()
+            if team.gameNumber != 999:
+                teams[team.name] = team.gameNumber
+            self.queue.task_done()   
+			
 
 @app.route('/')
 def index():
@@ -14,20 +36,17 @@ def builder():
 def gauntletpage():
 	return render_template("runsscoredgauntlet.html")
 
-	
-#teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']	
-teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW']	
-	
 @app.route('/gauntlet', methods=['GET'])
 def runGauntlet():
 	year = request.args.get('year', '')
 	if year == "":
 		return redirect(url_for('index'))
 	else:
-		teams = {}	
-		for i in teamCodes: 
-			team = Team(i, year)
-			team.FillBuckets() 
-			if team.gameNumber != 999:
-				teams[team.name] = team.gameNumber
+		for i in range(5):
+			t = ThreadUrl(queue, year)
+			t.setDaemon(True)
+			t.start()
+		for teamCode in teamCodes:
+			queue.put(teamCode)
+		queue.join()
 		return render_template('show_results.html', rows=teams)
