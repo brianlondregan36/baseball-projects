@@ -39,6 +39,7 @@ def gauntletpage():
 
 @app.route('/gauntlet', methods=['GET'])
 def runGauntlet():
+	print "hi there"
 	year = request.args.get('year', '')
 	if year == "":
 		return redirect(url_for('index'))
