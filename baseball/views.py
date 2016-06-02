@@ -9,15 +9,15 @@ queue = Queue.Queue()
 teams = {}
 	
 class ThreadUrl(threading.Thread):
-    def __init__(self, queue, year):
+    def __init__(self, queue):
 		threading.Thread.__init__(self)
-        self.year = year
+        #self.year = year
         self.queue = queue
         
 	def run(self):
 		while True:
             teamCode = self.queue.get()
-            team = Team(teamCode, self.year)
+            team = Team(teamCode, 2015)
             team.FillBuckets()
             if team.gameNumber != 999:
                 teams[team.name] = team.gameNumber
@@ -45,7 +45,7 @@ def runGauntlet():
 		return redirect(url_for('index'))
 	else:
 		for i in range(5):
-			t = ThreadUrl(queue, year)
+			t = ThreadUrl(queue)
 			t.setDaemon(True)
 			t.start()
 		for teamCode in teamCodes:
