@@ -7,23 +7,21 @@ import threading
 teamCodes = ['TBR', 'NYY', 'TOR', 'BAL', 'BOS', 'KCR', 'MIN', 'DET', 'CLE', 'CHW', 'HOU', 'TEX', 'LAA', 'SEA', 'OAK', 'WSN', 'NYM', 'ATL', 'MIA', 'PHI', 'STL', 'PIT', 'CHC', 'CIN', 'MIL', 'LAD', 'SFG', 'ARI', 'SDP', 'COL']
 queue = Queue.Queue()
 teams = {}
-	
+
 class ThreadUrl(threading.Thread):
 	def __init__(self, queue, year):
 		threading.Thread.__init__(self)
 		self.queue = queue
 		self.year = year
         
-	def run(self):
-		while True:
+    def run(self):
+        while True:
             teamCode = self.queue.get()
             team = Team(teamCode, year)
             team.FillBuckets()
             if team.gameNumber != 999:
                 teams[team.name] = team.gameNumber
             self.queue.task_done()
-			
-			
 
 @app.route('/')
 def index():
