@@ -17,7 +17,7 @@ class ThreadUrl(threading.Thread):
     def run(self):
         while True:
             teamCode = self.queue.get()
-            team = Team(teamCode, year)
+            team = Team(teamCode, self.year)
             team.FillBuckets()
             if team.gameNumber != 999:
                 teams[team.name] = team.gameNumber
