@@ -11,7 +11,6 @@ teams = {}
 class ThreadUrl(threading.Thread):
     def __init__(self, queue):
 		threading.Thread.__init__(self)
-        #self.year = year
         self.queue = queue
         
 	def run(self):
