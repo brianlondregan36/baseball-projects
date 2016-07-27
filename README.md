@@ -1,5 +1,4 @@
-a handful of web pages and web apps = all around a baseball theme - deployed on my heroku site
-   https://londregan-projects.herokuapp.com/
+A handful of web pages and web apps built around a baseball theme.
    
    using Flask and Jinja2
    
