@@ -5,12 +5,12 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 /* START FULL HEADER */
 
 header { 
-	height: 200px; 
+	height: 210px; 
 }
 @media only screen and (max-width: 480px)
 {
 	header {
-		height: 280px;
+		height: 290px;
     }
 	
 }
