@@ -4,11 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Word Cloud Generator</title>
-	<link rel="stylesheet" href="wordcloud.css">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='bceltic.ico') }}" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='wordcloud.css') }}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="wordcloud.js"></script>
+	<script src="{{ url_for('static', filename='wordcloud.js') }}"></script>
 </head>
 
 <body>
