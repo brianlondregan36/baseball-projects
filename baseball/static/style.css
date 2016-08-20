@@ -1,6 +1,6 @@
 /* START FULL HEADER */
 
-header{
+header#index{
 	width:100%;
     height:640px;
     overflow:auto;
@@ -9,7 +9,7 @@ header{
 	background: url("images/nyctrain.jpg") no-repeat center bottom fixed;
 	background-size:cover;
 }
-header div{
+header#index div{
 	margin-top:54px;
 	margin-left:46%; 
 	text-align:center;
