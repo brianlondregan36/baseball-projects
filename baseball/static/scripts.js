@@ -5,7 +5,7 @@ $( document ).ready(function() {
 	wait = false; 
 	
 	$('.in-story-image img').click(function(){
-		var a = '<a href="#close" class="close">'
+		var a = '<a href="#close">'
 		var img = $(this).prop('outerHTML');
 		var htmlString = a + img + '</a>';
 		
