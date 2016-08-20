@@ -9,6 +9,10 @@ def index():
 @app.route('/lineupbuilder/')
 def builder():
 	return render_template("lineupbuilder.html")
+
+@app.route('/wordcloud/')
+def cloud():
+    return render_template("wordcloud.html")
 	
 @app.route('/runsscoredgauntlet/')
 def gauntletpage():
