@@ -4,6 +4,9 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 
 /* START FULL HEADER */
 
+header { 
+	height: 185px; 
+}
 .top-container{
     width: 100%;
     height: 100%;
@@ -208,3 +211,14 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 }
 
 /* END IMAGE BOX DISPLAY FOR GAUNTLET */
+
+
+
+
+@media only screen and (max-width: 405px)
+{
+	header {
+		height: 270px;
+    }
+	
+}
