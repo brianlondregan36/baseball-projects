@@ -7,6 +7,13 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 header { 
 	height: 200px; 
 }
+@media only screen and (max-width: 480px)
+{
+	header {
+		height: 280px;
+    }
+	
+}
 .top-container{
     width: 100%;
     height: 100%;
@@ -211,14 +218,3 @@ header {
 }
 
 /* END IMAGE BOX DISPLAY FOR GAUNTLET */
-
-
-
-
-@media only screen and (max-width: 480px)
-{
-	header {
-		height: 280px;
-    }
-	
-}
