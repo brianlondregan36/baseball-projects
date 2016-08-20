@@ -1,62 +1,47 @@
-body{ font: 14px Verdana, Geneva, sans-serif; }
-
-
-
 /* START FULL HEADER */
 
-header { 
-	height: 210px; 
+header{
+	width:100%;
+    height:640px;
+    overflow:auto;
 }
-@media only screen and (max-width: 480px)
-{
-	header {
-		height: 290px;
-    }
-	
+.bg{
+	background: url("images/nyctrain.jpg") no-repeat center bottom fixed;
+	background-size:cover;
 }
-.top-container{
-    width: 100%;
-    height: 100%;
+header div{
+	margin-top:54px;
+	margin-left:46%; 
+	text-align:center;
+	font-weight:bold;
 }
-.top-layout{
-	width: 96%;
-    height: 543px;
-	margin-left:auto;
-	margin-right:auto;
-	background: url("images/header.png") no-repeat center;
+nav{
+	width:100%;
+	height:50px; 
+	padding-left:26px;
+	background-color:#FFFFFF;
 }
-.header-row{
-	display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal; 
-    -webkit-box-direction: normal; 
-    -webkit-flex-direction: row; 
-    -ms-flex-direction: row;
-    flex-direction: row; 
-    -webkit-flex-wrap: nowrap; 
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    box-sizing: border-box;
-    -webkit-align-self: stretch;
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-	padding:10px 40px 0 80px;
+.affix{
+	/*bootstrap sets position fixed*/
+	top:0;  
+	width:100%;
 }
-.header-title{ font-size:1.7em; }
-.nav-spacer{ flex-grow: 1; }
-.nav-link{
-	padding: 0 24px;
-	color: black;
-	text-decoration: none;
+nav div{
+	margin-top:10px;
+	padding-right:2px;
+	padding-left:6px; 
+	float:left;
+	font-weight:bold;
+}
+nav div a::after{
+	content: " |";
+}
+nav div:last-child a::after{
+	content: "";
+}
+nav div a:focus, nav div a:hover{
+	font-size:120%;
+	text-decoration:none;
 }
 
 /* END FULL HEADER */
@@ -80,46 +65,48 @@ header {
 		clear:both;
 	}
 }
-
-#post-main{
-    border: solid 4px #FF3300;
-	border-radius: 16px;
-    background: #E6E6E6;
-    margin: 30px 15px 30px 15px;
-	overflow-y:auto;
+body{
+	font-family:"Segoe UI","Segoe WP",Arial,Sans-Serif;
+	font-size:14px;
 }
-.in-story-image{
-	margin-top: 12px;
+article{
+	margin:30px 15px 30px 15px;
+    border:solid 2px #004d99;
+	border-radius:16px;
+    overflow-y:auto;
+	background:#f0f5f5;	
+}
+article .story-start, article .story, article .story-end{
+	margin-top:10px;
+	padding-top:4px;
+	padding-right:8px; 
+	padding-bottom:4px;	
+	padding-left:10px; 
+}
+figure{
+	margin-top: 10px;
     padding-top:4px;
 	padding-bottom:4px;
 }
-.in-story-image img, .in-story-image p{
+.in-story-image img, .in-story-image figcaption{
 	display:block;
 	width: 90%;
 	height: auto;
 	margin-left:auto;
 	margin-right:auto;
+	padding-bottom:4px;
 	text-align:center;
 	font: 12px Verdana, Geneva, sans-serif; 
-	color: #FF3300;
+	color: #004d99;
+}
+.story-start{ 
+	text-indent:44px; 
 }
 .story{
-	margin-top: 12px;
-	padding-top:4px;
-	padding-right:8px; 
-	padding-bottom:4px;	
-	padding-left:8px; 
 	text-indent:25px; 
 }
 .story-end{
-	margin-top: 12px;
-	padding-top:4px;
-	padding-right:8px; 
-	padding-bottom:4px;	
-	padding-left:8px; 
-	text-indent:25px; 
-	color:#FF3300;
-	font-weight:bold;
+	text-indent:30px; 
 }
 
 /* END STORY POSTS */
@@ -129,31 +116,33 @@ header {
 /* START BACK-TO-TOP WIDGET */
 
 .back-to-top{	
-	position: fixed;
-	right: 100px;
-	bottom: 70px;
-	width: 50px;
-	height: 50px;
-	visibility: hidden;
+	position:fixed;
+	right:100px;
+	bottom:70px;
+	width:50px;
+	height:50px;
+	visibility:hidden;
 	
-	background-color: #FF4719;
-	border: solid 2px #FF3300;
-	border-radius: 100px;
-	 -moz-border-radius: 100px; 
-	 -webkit-border-radius: 100px; 
-	opacity: 0.85;
-	filter: alpha(opacity=85);
-	box-shadow: 1px 2px gray;
+	background-color:#004d99; 
+	border:solid 2px #004d99;
+	border-radius:100px;
+	 -moz-border-radius:100px; 
+	 -webkit-border-radius:100px; 
+	opacity:0.85;
+	filter:alpha(opacity=85);
 	
 	line-height:58px;
 	vertical-align:middle;
 	text-align:center;
 	
-	color: #000000;
-	font-size:2em;
+	color:#000000;
+	font-size:3em;
 	font-weight:bold;
 	text-decoration:none;
-	transition: visibility 1s ease-out;
+	transition:visibility 1s ease-out;
+}
+a.back-to-top:focus, a.back-to-top:hover{
+	text-decoration:none;
 }
 
 /* END BACK-TO-TOP WIDGET */
@@ -185,8 +174,7 @@ header {
 	display:block;
 	position: relative;
 	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
+	padding: 12px 20px 12px 20px;
 	background: -moz-linear-gradient(#fff, #999);
 	background: -webkit-linear-gradient(#fff, #999);
 	background: -o-linear-gradient(#fff, #999);

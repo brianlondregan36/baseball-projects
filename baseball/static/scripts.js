@@ -1,3 +1,4 @@
+
 $( document ).ready(function() {
 	$backtotop = $('#backtotop');
 	$window = $(window);
