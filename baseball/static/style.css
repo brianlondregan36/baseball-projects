@@ -5,7 +5,7 @@ body{ font: 14px Verdana, Geneva, sans-serif; }
 /* START FULL HEADER */
 
 header { 
-	height: 185px; 
+	height: 200px; 
 }
 .top-container{
     width: 100%;
@@ -215,10 +215,10 @@ header {
 
 
 
-@media only screen and (max-width: 470px)
+@media only screen and (max-width: 480px)
 {
 	header {
-		height: 270px;
+		height: 280px;
     }
 	
 }
