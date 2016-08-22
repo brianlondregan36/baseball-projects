@@ -44,7 +44,7 @@ nav div a:focus, nav div a:hover{
 	text-decoration:none;
 }
 
-@media only screen and (min-width:405px) {  
+@media only screen and (max-width:405px) {  
 	.bg{
 		background: url("images/nyctrain.jpg") no-repeat right top fixed;
 	}
