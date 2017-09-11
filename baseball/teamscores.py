@@ -1,5 +1,5 @@
 import urllib2
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 class Team(object):
     
@@ -40,6 +40,7 @@ class Team(object):
                     if cellIndex == 8:   
                         #get this game's runs scored
 						score = int(thisCell.string)
+						print score
 						if score >= 1 and score <= 13:
 							#add this game number to the run bucket it belongs in
 							self.runBuckets[score-1].append(len(self.games))
