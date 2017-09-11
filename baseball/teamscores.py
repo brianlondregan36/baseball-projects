@@ -26,21 +26,18 @@ class Team(object):
         soup = BeautifulSoup(page.read())
 
         top = soup.find("table", {"id": "team_schedule"}).tbody
-        for thisRow in top.findAll('tr'):  #go through each row
+
+        for thisRow in top.findAll('tr', attrs={'class':None}):  #go through each row
             if "preview" in thisRow.text:
                 #season still in progress, reached a game that hasn't been played yet
                 break
             else: 
                 cellIndex = 1
-                for thisCell in thisRow.findAll('td'):  #go through each cell 
-                    if cellIndex == 1:
-                        if (thisCell.string == "Rk") or (thisCell is None) or (len(thisCell) == 0):  
-                            #skip the occassional header row
-							break
-                    if cellIndex == 2:  
+                for thisCell in thisRow.contents:  #go through each cell 
+                    if cellIndex == 1:  
                         #add this game number to the team's games list
                         self.games.append(thisCell.string)
-                    if cellIndex == 9:   
+                    if cellIndex == 8:   
                         #get this game's runs scored
 						score = int(thisCell.string)
 						if score >= 1 and score <= 13:
